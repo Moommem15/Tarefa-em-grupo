@@ -1,95 +1,153 @@
-*{
-    margin: 0px;
-    padding: 0px;
+:root {
+  /* --- CORES NEUTRAS (Fundo, Bordas e Textos) --- */
+  --bg-main: #f0f2f5; /* Fundo geral da página */
+  --bg-card: #ffffff; /* Fundo dos componentes/cards */
+  --text-main: #1f2937; /* Texto principal (escuro e de alto contraste) */
+  --text-muted: #6b7280; /* Texto secundário / legendas */
+  --border-color: #d1d5db; /* Bordas e divisores visíveis */
+
+  /* --- CORES PRINCIPAIS (Ações e Identidade) --- */
+  --primary: #1d4ed8; /* Azul principal (botões e links) */
+  --primary-hover: #1e40af; /* Azul mais escuro para o hover/foco */
+  --primary-contrast: #ffffff; /* Cor do texto em cima do botão primário */
+
+  /* --- CORES DE ESTADO (Feedback) --- */
+  --danger: #dc2626; /* Vermelho para exclusão/erros */
+  --danger-hover: #b91c1c; /* Vermelho escuro para hover */
+  --success: #16a34a; /* Verde para confirmações/sucesso */
+  --warning: #ca8a04; /* Amarelo/Laranja para avisos ou prioridades */
+
+  /* --- ACESSIBILIDADE / FOCO --- */
+  --focus-ring: #2563eb; /* Cor do contorno para navegação por teclado */
 }
-main{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+
+* {
+  margin: 0px;
+  padding: 0px;
+  color: var(--text-main);
+  box-sizing: border-box;
 }
-.UiTarefa{
-    width: 350px;
-    height: 350px;
-    background-color: whitesmoke;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 5px 5px 5px  whitesmoke;
+
+main {
+  background-color: var(--bg-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
-.Top{
-    display: flex;
-    padding: 5px;
+.UiTarefa {
+  width: 350px;
+  height: 60vh;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  padding: 5px;
+  border-radius: 5px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.05);
 }
-.Top textarea{
-    min-width: 80%;
-    max-height: 150px;
-    resize: none;
+.Top {
+  display: flex;
+  padding: 5px;
 }
-.Top button{
-    width: 15%;
-    margin-left: 10px;
-    font-size: 25px;
+.Top textarea {
+  min-width: 80%;
+  max-height: 150px;
+  resize: none;
 }
-.Titulo{
-    display: flex;
-    justify-content: space-between;
+.Top button {
+  width: 15%;
+  margin-left: 10px;
+  font-size: 25px;
 }
-.Titulo button{
-    background-color: red;
-    width: 15px;
-    height: 15px;
-    border: transparent;
-    border-radius: 100%;
-    cursor: pointer;
+.Titulo {
+  display: flex;
+  justify-content: space-between;
 }
-.Titulo button:hover{
-    background-color: rgb(253, 83, 83);
+.Titulo button {
+  background-color: red;
+  width: 15px;
+  height: 15px;
+  border: transparent;
+  border-radius: 100%;
+  cursor: pointer;
 }
-.Titulo p{
-    margin-left: auto;
+.Titulo button:hover {
+  background-color: rgb(253, 83, 83);
 }
-.CardTarefa{
-    display: flex;
-    gap: 5px;
+.Titulo p {
+  margin-left: auto;
 }
-.ListaTarefas{
-    display: flex;
-    flex-direction: column;
-    overflow-y: auto;
-}
-.Filtro{
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.CardTarefa {
+  display: flex;
+    max-height: 120px;
+    max-width: 350px;
    
+  gap: 5px;
 }
-.Filtro button{
-     background-color: transparent;
-    border: transparent;
-    font-weight: bolder;
-    cursor: pointer;
+.CardTarefa label{
+    flex: 1;
+    min-width: 0;
 }
-.Top button{
-    background-color: cornflowerblue;
-    color: white;
-    border: 1px solid white;
-    border-radius: 5px;
-    cursor: pointer;
+.CardTarefa p {
+  flex: 1; /* Faz o texto ocupar o espaço livre e respeitar os limites */
+  min-width: 0; /* Essencial no Flexbox para permitir que o texto quebre e encolha */
+  max-height: 60px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
-.RemoverTarefa, .Prioridade{
-    width: 20px;
-    height: 20px;
-    background-color: transparent;
-    border: transparent;
-    margin-right: 5px;
+.titulo{
+    font-weight: bold;
 }
-.RemoverTarefa img, .Prioridade img{
-    width: 15px;
-    height: 15px;
+.Descricao{
+    max-height: 60%;
 }
-.acao{
-     margin-left: auto;
-      margin-right: 5px;
-      display: flex;
-      gap: 5px;
+.ListaTarefas {
+  display: flex;
+    gap: 8px;
+    max-height: 80%;
+  flex-direction: column;
+  overflow-y: auto;
+  flex: 1;
+
+
 }
+.Filtro {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+.Filtro button {
+  background-color: transparent;
+  border: transparent;
+  font-weight: bolder;
+  cursor: pointer;
+  color: #374151;
+}
+.Top button {
+  background-color: var(--primary);
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.RemoverTarefa,
+.Prioridade {
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: transparent;
+  margin-right: 5px;
+}
+.RemoverTarefa img,
+.Prioridade img {
+  width: 24px;
+  height: 24px;
+}
+.acao {
+  margin-left: auto;
+  margin-right: 5px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+

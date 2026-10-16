@@ -18,7 +18,7 @@
                 <div></div>
             </div>
             <hr>
-            <div>
+            <div style="height: 100%;">
                 <div class="Top">
                     <textarea name="" id="InputTarefa" placeholder="Digite tarefa"></textarea>
                     <button onclick="AddTarefa()">+</button>
@@ -30,8 +30,23 @@
                 </div>
                 <hr>
                 <div class="ListaTarefas" id="ListaTarefas">
-
                     
+                    <div class="CardTarefa" title="${element.Texto}">
+                        <input type="checkbox" id="tarefa-${element.id}" ${element.IsPendent === 0 ? 'checked' : ''}
+                            onchange="MudarStatus(${element.id})">
+                        <div class="TextoCard">
+                            <p class="titulo">Gerencie suas tarefas diarias com muita eficiencia</p>
+                             <p class="Descricao">Esta ferramenta foi desenvolvida para ajudar voce a organizar sua rotina de estudos e trabalho de forma simples e rapida. Adicione novas atividades, defina prioridades e mantenha tudo sob controle em um unico lugar totalmente intuitivo.dddddddddddddd</p>
+                        </div>
+                       
+                        <div class="acao">
+                            <button class="Prioridade" onclick="Priorizar(${element.id})">
+                                <img src="${element.IsPrioridade == 1 ? " BandeiraAtiva.png" : "BandeiraDesativada.png"}" alt="">
+                            </button>
+                            <button class="RemoverTarefa" onclick="RemoverTarefa(${element.id})" aria-label="Remover tarefa">
+                                <img src="RemoverIcone.png" alt="" aria-hidden="true">
+                            </button>
+                        </div>
                        
                     
                 </div>

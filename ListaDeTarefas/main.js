@@ -3,6 +3,25 @@ const InputTarefa = document.getElementById("InputTarefa")
 const listaTarefaJson = JSON.parse(localStorage.getItem("Tarefas")) || [{ id: 1, Texto: "Test", IsPendent: 1, IsPrioridade: 0 }]
 const FiltroButton = document.querySelectorAll(".Filtro button")
 let TipoAtual = 0
+
+//titulo 50 caractres e descrição 250
+
+function CriarCard(element)
+{
+     ListaTarefas.innerHTML += `  <div class="CardTarefa" title="${element.Texto}">
+                        <input type="checkbox" id="tarefa-${element.id}" ${element.IsPendent === 0 ? 'checked' : ''}
+                            onchange="MudarStatus(${element.id})">
+                        <label for="tarefa-${element.id}"><p>${element.Texto}</p></label>
+                        <div class="acao">
+                            <button class="Prioridade" onclick="Priorizar(${element.id})">
+                                <img src="${element.IsPrioridade == 1 ? " BandeiraAtiva.png" : "BandeiraDesativada.png"}" alt="">
+                            </button>
+                            <button class="RemoverTarefa" onclick="RemoverTarefa(${element.id})" aria-label="Remover tarefa">
+                                <img src="RemoverIcone.png" alt="" aria-hidden="true">
+                            </button>
+                        </div>`
+}
+
 function MostraTarefa(Tipo1) {
     let Tipo = Tipo1
     if (Tipo === undefined) {
@@ -16,18 +35,7 @@ function MostraTarefa(Tipo1) {
     if (Tipo == 0) {
         FiltroButton.forEach((element) => { console.log(element.textContent); if (element.textContent == 'Todos') { element.style.color = 'blue' } })
         listaTarefaJson.forEach((element) => {
-            ListaTarefas.innerHTML += `  <div class="CardTarefa">
-                        <input type="checkbox" id="tarefa-${element.id}" ${element.IsPendent === 0 ? 'checked' : ''}
-                            onchange="MudarStatus(${element.id})">
-                        <label for="tarefa-${element.id}">${element.Texto}</label>
-                        <div class="acao">
-                            <button class="Prioridade" onclick="Priorizar(${element.id})">
-                                <img src="${element.IsPrioridade == 1 ? " BandeiraAtiva.png" : "BandeiraDesativada.png"}" alt="">
-                            </button>
-                            <button class="RemoverTarefa" onclick="RemoverTarefa(${element.id})" aria-label="Remover tarefa">
-                                <img src="RemoverIcone.png" alt="" aria-hidden="true">
-                            </button>
-                        </div>`
+            CriarCard(element)
         })
     }
     //Em-Andamento = IsPendent = 1
@@ -35,18 +43,7 @@ function MostraTarefa(Tipo1) {
         FiltroButton.forEach((element) => { console.log(element.textContent); if (element.textContent == 'Em andamento') { element.style.color = 'blue' } })
         listaTarefaJson.forEach((element) => {
             if (element.IsPendent == 1) {
-                ListaTarefas.innerHTML += `  <div class="CardTarefa">
-                        <input type="checkbox" id="tarefa-${element.id}" ${element.IsPendent === 0 ? 'checked' : ''}
-                            onchange="MudarStatus(${element.id})">
-                        <label for="tarefa-${element.id}">${element.Texto}</label>
-                        <div class="acao">
-                            <button class="Prioridade" onclick="Priorizar(${element.id})">
-                                <img src="${element.IsPrioridade == 1 ? " BandeiraAtiva.png" : "BandeiraDesativada.png"}" alt="">
-                            </button>
-                            <button class="RemoverTarefa" onclick="RemoverTarefa(${element.id})" aria-label="Remover tarefa">
-                                <img src="RemoverIcone.png" alt="" aria-hidden="true">
-                            </button>
-                        </div>`
+               CriarCard(element)
             }
 
         })
@@ -56,18 +53,7 @@ function MostraTarefa(Tipo1) {
         FiltroButton.forEach((element) => { console.log(element.textContent); if (element.textContent == 'Finalizados') { element.style.color = 'blue' } })
         listaTarefaJson.forEach((element) => {
             if (element.IsPendent == 0) {
-                ListaTarefas.innerHTML += ` <div class="CardTarefa">
-                        <input type="checkbox" id="tarefa-${element.id}" ${element.IsPendent === 0 ? 'checked' : ''}
-                            onchange="MudarStatus(${element.id})">
-                        <label for="tarefa-${element.id}">${element.Texto}</label>
-                        <div class="acao">
-                            <button class="Prioridade" onclick="Priorizar(${element.id})">
-                                <img src="${element.IsPrioridade == 1 ? " BandeiraAtiva.png" : "BandeiraDesativada.png"}" alt="">
-                            </button>
-                            <button class="RemoverTarefa" onclick="RemoverTarefa(${element.id})" aria-label="Remover tarefa">
-                                <img src="RemoverIcone.png" alt="" aria-hidden="true">
-                            </button>
-                        </div>`
+               CriarCard(element)
             }
 
         })
@@ -121,4 +107,4 @@ function Priorizar(id) {
    listaTarefaJson.sort((a, b) => b.IsPrioridade - a.IsPrioridade);
     MostraTarefa()
 }
-MostraTarefa(0)
+//MostraTarefa(0)
