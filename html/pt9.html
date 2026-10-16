@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestao Academica</title>
+    <script src="../js/pt9.js" defer></script>
 
 </head>
 <body>
@@ -92,7 +93,7 @@
             </div>
 <br>
              <div class="botao">
-<button type="submit" onclick="cadastrarTurma()">Cadastrar turma</button>
+<button type="submit">Cadastrar turma</button>
 </div>
 </form>
 
@@ -102,7 +103,8 @@
     <p>Edite ou exclua turmas sem estudantes vinculados.</p>
  </div>
             
-       <div class="borda2">
+    <div id="lista-turmas">
+    <div class="borda2">
 
         <h3></h3>
         <p></p>
@@ -111,6 +113,7 @@
             <button type="button" onclick="editarTurma()">Editar</button>
             <button type="button" onclick="excluirTurma()">Excluir</button>
        </div>        
+     </div>
  </div>
 
  <div class="psolo">
