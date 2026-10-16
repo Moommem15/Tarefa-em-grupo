@@ -3,3 +3,80 @@
     padding: 0;
     margin: 0;
 }
+body{
+    background-color: hwb(188 70% 9%);
+}
+header{
+    background-color: lab(73.59% -17.58 -11.43);
+    color: oklch(38.574% 0.11067 250.755);
+    text-align: center;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+
+
+}
+ button{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    background-color: oklch(56.518% 0.09306 269.473);
+    color: #0d3250;
+    border-radius: 5px;
+}
+.botoes{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+   border: 0%;
+    color: hsl(207, 58%, 51%);
+   
+}
+
+.formulario{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+    background-color: lab(100% 0.01 -0.01);
+    width: 96%;
+    border-radius: 5px;
+}
+.colunas{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    background-color: lab(100% 0.01 -0.01);
+    width: 96%;
+    border-radius: 5px;
+}
+.h2{
+    
+    color: oklch(38.574% 0.11067 250.755);
+    text-align: center;
+    padding: 2em;
+}
+.texto{
+    color: oklch(38.574% 0.11067 250.755);
+    text-align: center;
+    padding: 2em;
+}
+.lista-turmas{
+    color: oklch(38.574% 0.11067 250.755);
+    text-align: center;
+    padding: 2em;
+}
+.borda2{
+    border: 1px solid black;
+    padding: 4em;
+    margin: 2em;
+    background-color: lch(99.03% 3.15 208.74);
+    width: 80%;
+   
+}
+.psolo{
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 2em;
+    padding-top: 100px;
+}
+
